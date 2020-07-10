@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "tennis_center_gem"
+require_relative "../lib/tennis_center_gem"
 
 TennisCenterGem::CLI.new.start
