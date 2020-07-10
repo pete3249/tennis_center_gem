@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["katelynrpeterson16@gmail.com"]
 
   spec.summary       = %q{Tennis Center CLI Gem}
-  spec.description   = %q{Provides a CLI you can run to obtain information about tennis centers based on location}
+  spec.description   = %q{Locate details of tennis centers within a certain zip code.}
   spec.homepage      = "https://github.com/pete3249/tennis_center_gem"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
