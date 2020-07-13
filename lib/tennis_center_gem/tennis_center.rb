@@ -26,5 +26,9 @@ module TennisCenterGem
             @@all
         end 
 
+        def get_more_details
+            
+        end 
+
     end 
 end 

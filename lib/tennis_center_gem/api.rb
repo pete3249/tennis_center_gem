@@ -11,7 +11,7 @@ module TennisCenterGem
             begin
                 @@key = File.open(File.expand_path("~/.yelp-api-key")).read.strip
             rescue
-                puts "Whoops! Looks like you haven't added your Yelp API key yet. You can get your API key at https://www.yelp.com/developers/documentation/v3/authentication. Come back and paste your key here."
+                puts "Uh-oh! We weren't able to find your Yelp API key. You can get your key at https://www.yelp.com/developers/documentation/v3/authentication. Come back and paste your key here."
                 @@key = gets.strip
                 return if @@key == "exit"
                 File.open(File.expand_path("~/.yelp-api-key"), "w") do |file|
