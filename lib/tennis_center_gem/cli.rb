@@ -2,7 +2,6 @@ require 'pry'
 
 module TennisCenterGem
    class CLI
-    attr_accessor :input
 
         def initialize
             @input = " "
@@ -13,30 +12,34 @@ module TennisCenterGem
                 "Welcome to the Tennis Center Gem!",
                 "We are here to help you find a tennis facility!"
             ]
-            get_location
-            numbered_tennis_center_list
-            ask_for_choice
             while @input != "exit"
-                if @input == "back"
-                    start
-                elsif @input == "list"
-                    numbered_tennis_center_list
-                elsif valid?
-                    puts TennisCenter.find_by_number(@input).get_more_details
-                else 
-                    puts "Invalid input :#{@input}. Please try again!"
-                end 
-                ask_for_choice
-            end 
-            if @input == "exit"
-                goodbye
+                get_location
+                start_tennis_center_operator
             end 
         end 
 
         def get_location
             puts "Please enter your location."
             @location = gets.strip
-            TennisCenter.load_by_location(@location)
+            TennisCenter.load_by_location(@location) unless @location == "exit"
+        end 
+
+        def start_tennis_center_operator
+            numbered_tennis_center_list
+            ask_for_choice
+                while @input != "exit" && @input != "back"
+                    if @input == "list"
+                        numbered_tennis_center_list
+                    elsif valid?
+                        puts TennisCenter.find_by_number(@input).get_more_details
+                    else 
+                        puts "Invalid input :#{@input}. Please try again!"
+                    end 
+                    ask_for_choice
+                end 
+            if @input == "exit"
+                goodbye
+            end 
         end 
 
         def numbered_tennis_center_list
@@ -55,7 +58,7 @@ module TennisCenterGem
         
         def ask_for_choice
             list_choices
-            @input = gets.strip 
+            @input = gets.strip.downcase
         end 
 
         def valid?
