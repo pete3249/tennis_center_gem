@@ -1,10 +1,10 @@
 # TennisCenterGem
 
-Welcome to the Tennis Center Gem! Use it to locate the details of tennis centers within a certain location.
+Welcome to the Tennis Center Gem! It provides users with a CLI to locate tennis centers within a certain location. 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Installation is easy! Simply add this line to your application's Gemfile:
 
 ```ruby
 gem 'tennis_center_gem'
@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts.
+
+./bin/tennis_center_cli
 
 ## Development
 

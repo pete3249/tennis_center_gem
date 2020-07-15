@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["pete3249"]
   spec.email         = ["katelynrpeterson16@gmail.com"]
 
-  spec.summary       = %q{Tennis Center CLI Gem}
-  spec.description   = %q{Locate details of tennis centers within a certain zip code.}
+  spec.summary       = %q{CLI for displaying information about local tennis centers.}
+  spec.description   = %q{Locates details of tennis centers within a certain area.}
   spec.homepage      = "https://github.com/pete3249/tennis_center_gem"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
@@ -31,6 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "httparty"
   spec.add_dependency "pry"
   spec.add_dependency 'colorize', '~> 0.8.1'
-  # spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", ">= 12.3.3"
 end
