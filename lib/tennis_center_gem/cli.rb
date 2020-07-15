@@ -28,6 +28,7 @@ module TennisCenterGem
             numbered_tennis_center_list
             ask_for_choice
                 while @input != "exit" && @input != "back"
+                    binding.pry if @input == "debug"
                     if @input == "list"
                         numbered_tennis_center_list
                     elsif valid?

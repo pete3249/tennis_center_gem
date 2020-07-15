@@ -31,24 +31,39 @@ module TennisCenterGem
         end 
 
         def get_more_details
-             <<-HEREDOC
+        <<-HEREDOC
 
-             The #{self.name} has #{self.review_count} reviews and a #{self.rating} rating.
-             They are located at #{self.address}.
-             To contact #{self.name} directly, call them at #{self.display_phone}.
+        The #{self.name} has #{self.review_count} review(s) and a #{self.rating} rating.
+        They are located at #{self.address}.
+        To contact #{self.name} directly, call them at #{self.display_phone}.
+             
+        REVIEWS:
 
-            HEREDOC
+        #{self.display_reviews}
+
+        HEREDOC
         end
         
         def address
             location["display_address"].join(", ")
+        end
+        
+        def get_reviews
+            @reviews ||= API.get_yelp_reviews(self.id)
         end 
 
+        def display_reviews
+            self.get_reviews.map do |review_hash|
+                [
+                    "Reviewer: #{review_hash['user']['name']}",
+                    Date.parse(review_hash['time_created']).strftime("%B %Y"),
+                    "Rating: #{review_hash['rating']}",
+                    "Review: #{review_hash['text']}",
+                    "Keep reading: #{review_hash['url']}",
+                    ""
+                ].join("\n")
+            end.join("\n")
+        end 
+        
     end 
 end 
-
-#pretend number is 1
- 
-# CLI.search
-
-# CLI.input 

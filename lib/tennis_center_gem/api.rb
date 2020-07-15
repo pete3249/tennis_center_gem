@@ -36,5 +36,11 @@ module TennisCenterGem
             JSON.parse(response)["businesses"]
         end
 
+        def self.get_yelp_reviews(business_id)
+            url = "#{API_HOST}#{BUSINESS_PATH}#{business_id}/reviews"
+            response = HTTP.auth("Bearer #{api_key}").get(url)
+            JSON.parse(response)["reviews"]
+        end 
+
     end 
 end 
