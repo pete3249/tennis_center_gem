@@ -12,9 +12,9 @@ module TennisCenterGem
                 @@key = File.open(File.expand_path("~/.yelp-api-key")).read.strip
             rescue
                 puts [
-                    "Uh-oh! I wasn't able to find your Yelp API key.",
+                    "Uh-oh! I wasn't able to find your Yelp API key.".colorize(:red),
                     "You can get your key at https://www.yelp.com/developers/documentation/v3/authentication.",
-                    "Come back and paste your key here."
+                    "Come back and paste your key here!"
                 ]
                 @@key = gets.strip
                 return if @@key == "exit"
