@@ -1,10 +1,6 @@
 module TennisCenterGem
    class CLI
-
-        def initialize
-            @input = " "
-        end 
-
+    
         def start
             puts [
                 "Welcome to the Tennis Center Gem!".colorize(:magenta),
