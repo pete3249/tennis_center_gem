@@ -1,6 +1,3 @@
-require 'pry'
-require 'colorize'
-
 module TennisCenterGem
    class CLI
 

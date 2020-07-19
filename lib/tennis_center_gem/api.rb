@@ -1,6 +1,3 @@
-require 'pry'
-require 'http'
-
 module TennisCenterGem
     class API
         API_HOST = "https://api.yelp.com"
