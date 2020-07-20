@@ -1,5 +1,9 @@
 module TennisCenterGem
    class CLI
+
+        def initialize
+            @input = " "
+        end 
     
         def start
             puts [
