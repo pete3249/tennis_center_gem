@@ -31,17 +31,16 @@ module TennisCenterGem
         end 
 
         def get_more_details
-        <<-HEREDOC
-
-        The #{self.name} has #{self.review_count} review(s) and a #{self.rating} rating.
-        They are located at #{self.address}.
-        To contact #{self.name} directly, call them at #{self.display_phone}.
-             
-        REVIEWS:
-
-        #{self.display_reviews}
-
-        HEREDOC
+            puts [
+                " ",
+                "The #{self.name} has #{self.review_count} review(s) and a #{self.rating} rating.",
+                "They are located at #{self.address}.",
+                "To contact #{self.name} directly, call them at #{self.display_phone}.",
+                " ",
+                "REVIEWS:",
+                " ",
+                "#{self.display_reviews}"
+            ]
         end
         
         def address
