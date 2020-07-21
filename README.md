@@ -1,6 +1,6 @@
 # TennisCenterGem
 
-Welcome to the Tennis Center Gem! It provides users with a CLI to locate tennis centers within a certain location. 
+Welcome to the Tennis Center Gem! It provides users with a CLI to locate a tennis centers within a certain location. Users can view important details about a selected tennis center (address, phone number, rating, and reviews) and search multiple locations. 
 
 ## Installation
 
