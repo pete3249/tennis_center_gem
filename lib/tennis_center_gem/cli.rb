@@ -10,10 +10,11 @@ module TennisCenterGem
                 "Welcome to the Tennis Center Gem!".colorize(:magenta),
                 "\nWe are here to help you find a tennis facility!".colorize(:magenta)
             ]
-            while @input != "exit"
+            while @input != "exit" && @location != "exit"
                 get_location
-                start_tennis_center_operator
+                start_tennis_center_operator unless @location == "exit"
             end 
+            goodbye
         end 
 
         def get_location
@@ -25,19 +26,16 @@ module TennisCenterGem
         def start_tennis_center_operator
             numbered_tennis_center_list
             ask_for_choice
-                while @input != "exit" && @input != "back"
-                    #binding.pry if @input == "debug"
-                    if @input == "list"
-                        numbered_tennis_center_list
-                    elsif valid?
-                        puts TennisCenter.find_by_number(@input).get_more_details
-                    else 
-                        puts "Invalid input :#{@input}. Please try again!".colorize(:red)
-                    end 
-                    ask_for_choice
+            while @input != "exit" && @input != "back"
+                #binding.pry if @input == "debug"
+                if @input == "list"
+                    numbered_tennis_center_list
+                elsif valid?
+                    puts TennisCenter.find_by_number(@input).get_more_details
+                else 
+                    puts "Invalid input :#{@input}. Please try again!".colorize(:red)
                 end 
-            if @input == "exit"
-                goodbye
+                ask_for_choice
             end 
         end 
 
