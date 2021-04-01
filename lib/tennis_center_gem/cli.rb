@@ -27,7 +27,6 @@ module TennisCenterGem
             numbered_tennis_center_list
             ask_for_choice
             while @input != "exit" && @input != "back"
-                #binding.pry if @input == "debug"
                 if @input == "list"
                     numbered_tennis_center_list
                 elsif valid?
@@ -43,6 +42,11 @@ module TennisCenterGem
             TennisCenter.all.each.with_index(1) {|tennis_center, index| puts "#{index}. #{tennis_center.name}"}
         end 
 
+        def ask_for_choice
+            list_choices
+            @input = gets.strip.downcase
+        end 
+
         def list_choices
             puts [
                 "\n",
@@ -51,11 +55,6 @@ module TennisCenterGem
                 "To search a new location, type" + " 'back'".colorize(:light_blue),
                 "To end the program, type" + " 'exit'".colorize(:light_blue)
             ]
-        end 
-        
-        def ask_for_choice
-            list_choices
-            @input = gets.strip.downcase
         end 
 
         def valid?
