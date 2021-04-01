@@ -12,7 +12,7 @@ module TennisCenterGem
         end 
 
         def self.load_by_location(location)
-            results = API.yelp_search("Tennis Center", location = "Atlanta")
+            results = API.yelp_search("Tennis Center", location)
             @@all = create_from_API_results(results)
         end 
 
