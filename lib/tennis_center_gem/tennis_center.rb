@@ -12,12 +12,12 @@ module TennisCenterGem
         end 
 
         def self.load_by_location(location)
-            search_results = API.yelp_search("Tennis Center", location)
-            @@all = create_from_API_results(search_results)
+            results = API.yelp_search("Tennis Center", location = "Atlanta")
+            @@all = create_from_API_results(results)
         end 
 
-        def self.create_from_API_results(search_results)
-            search_results.collect do |tennis_center_hash|
+        def self.create_from_API_results(results)
+            results.collect do |tennis_center_hash|
                 TennisCenter.new(tennis_center_hash)
             end 
         end 
@@ -32,13 +32,10 @@ module TennisCenterGem
 
         def get_more_details
             puts [
-                " ",
-                "The #{self.name} has #{self.review_count} review(s) and a #{self.rating} rating.",
+                "\nThe #{self.name} has #{self.review_count} review(s) and a #{self.rating} rating.",
                 "They are located at #{self.address}.",
-                "To contact #{self.name} directly, call them at #{self.display_phone}.",
-                " ",
-                "REVIEWS:",
-                " ",
+                "\nTo contact #{self.name} directly, call them at #{self.display_phone}.",
+                "\nREVIEWS:",
                 "#{self.display_reviews}"
             ]
         end
